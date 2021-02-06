@@ -55,8 +55,8 @@ public class PinCodeRestControllerTest {
 	
 	
 	@Test
-	public void testShouldReturnPincodeByPinNumberFromService() throws Exception {
-		this.mockMvc.perform(get("/api/pin-codes/id/39707")).andDo(print()).andExpect(status().isOk())
+	public void testShouldReturnPincodeByIdFromService() throws Exception {
+		this.mockMvc.perform(get("/api/pin-code/id/39707")).andDo(print()).andExpect(status().isOk())
 		.andExpect(content().contentType("application/json"))
 		.andExpect(jsonPath("$.pinCode").value(854365))
 		.andExpect(jsonPath("$.id").value(39707))
@@ -68,7 +68,7 @@ public class PinCodeRestControllerTest {
 	
 	@Test
 	public void testShouldReturnNotFoundResponseFromService() throws Exception {
-		this.mockMvc.perform(get("/api/pin-codes/id/-1")).andDo(print()).andExpect(status().isNotFound());
+		this.mockMvc.perform(get("/api/pin-code/id/-1")).andDo(print()).andExpect(status().isNotFound());
 	}
 }
 
